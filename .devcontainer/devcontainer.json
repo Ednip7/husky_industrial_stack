@@ -1,0 +1,32 @@
+{
+    "name": "Husky Industrial Stack (ROS 2 Jazzy)",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "dev_container",
+    "workspaceFolder": "/home/ros2_dev/husky_industrial_stack",
+    "remoteUser": "ros2_dev",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "ros.distro": "jazzy",
+                "python.analysis.extraPaths": [
+                    "/opt/ros/jazzy/lib/python3.12/site-packages"
+                ]
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-themes",
+                "twxs.cmake",
+                "ms-python.python",
+                "ms-python.vscode-pylint",
+                "vscot-rt.vscode-ros",
+                "redhat.vscode-xml",
+                "jebbs.plantuml",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "postCreateCommand": "sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y"
+}

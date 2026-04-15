@@ -1,0 +1,23 @@
+services:
+  dev_container:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        USER_UID: ${USER_ID:-1000}
+        USER_GID: ${GROUP_ID:-1000}
+    container_name: husky_industrial_dev
+    runtime: nvidia
+    network_mode: host
+    ipc: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-42}
+    volumes:
+      - .:/home/ros2_dev/husky_industrial_stack:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /dev/dri:/dev/dri:ro
+    stdin_open: true
+    tty: true
