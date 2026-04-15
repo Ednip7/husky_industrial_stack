@@ -2,7 +2,7 @@
 FROM osrf/ros:jazzy-desktop-full
 
 # Build Arguments
-ARG USERNAME=ros2_dev
+ARG USERNAME=ros2-dev
 ARG USER_UID=1000
 ARG USER_GID=1000
 
@@ -34,6 +34,11 @@ RUN apt-get update && apt-get install -y \
     gz-harmonic \
     ros-jazzy-ros-gz \
     gh \
+    # Clearpath Unified Configuration System packages
+    ros-jazzy-clearpath-common \
+    ros-jazzy-clearpath-config \
+    ros-jazzy-clearpath-simulator \
+    ros-jazzy-clearpath-viz \
     && rm -rf /var/lib/apt/lists/*
 
 # User Management

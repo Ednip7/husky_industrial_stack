@@ -16,7 +16,7 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
       - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-42}
     volumes:
-      - .:/home/ros2_dev/husky_industrial_stack:rw
+      - .:/home/ros2-dev/husky_industrial_stack:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /dev/dri:/dev/dri:ro
     stdin_open: true
