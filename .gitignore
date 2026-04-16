@@ -13,3 +13,13 @@ __pycache__/
 
 # Environment
 .env
+
+# Auto-generated configuration artifacts
+src/husky_industrial_config/config/robot.srdf
+src/husky_industrial_config/config/robot.srdf.xacro
+src/husky_industrial_config/config/robot.urdf.xacro
+src/husky_industrial_config/config/manipulators
+src/husky_industrial_config/config/platform
+src/husky_industrial_config/config/platform-extras
+src/husky_industrial_config/config/sensors
+src/husky_industrial_config/config/robot.urdf.xacro
