@@ -4,8 +4,8 @@
         "../docker-compose.yml"
     ],
     "service": "dev_container",
-    "workspaceFolder": "/home/ros2_dev/husky_industrial_stack",
-    "remoteUser": "ros2_dev",
+    "workspaceFolder": "/home/ros2-dev/husky_industrial_stack",
+    "remoteUser": "ros2-dev",
     "customizations": {
         "vscode": {
             "settings": {

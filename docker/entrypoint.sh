@@ -6,8 +6,8 @@ set -e
 source "/opt/ros/jazzy/setup.bash"
 
 # Source the local workspace if it has been built
-if [ -f "/home/ros2_dev/husky_industrial_stack/install/setup.bash" ]; then
-    source "/home/ros2_dev/husky_industrial_stack/install/setup.bash"
+if [ -f "/home/ros2-dev/husky_industrial_stack/install/setup.bash" ]; then
+    source "/home/ros2-dev/husky_industrial_stack/install/setup.bash"
     # Local workspace sourced successfully
 fi
 

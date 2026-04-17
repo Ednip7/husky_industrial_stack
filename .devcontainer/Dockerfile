@@ -2,7 +2,7 @@
 FROM osrf/ros:jazzy-desktop-full
 
 # Build Arguments
-ARG USERNAME=ros2_dev
+ARG USERNAME=ros2-dev
 ARG USER_UID=1000
 ARG USER_GID=1000
 
@@ -28,13 +28,10 @@ RUN apt-get update && apt-get install -y \
     && wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
     && chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-    && curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
-    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
     && apt-get update && apt-get install -y \
-    gz-harmonic \
     ros-jazzy-ros-gz \
+    ros-jazzy-gz-ros2-control \
     gh \
-    # Clearpath Unified Configuration System packages
     ros-jazzy-clearpath-common \
     ros-jazzy-clearpath-config \
     ros-jazzy-clearpath-simulator \
@@ -49,6 +46,7 @@ RUN if getent passwd $USER_UID; then userdel -f $(getent passwd $USER_UID | cut 
     echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME && \
     chmod 0440 /etc/sudoers.d/$USERNAME
 
+# Shell Configuration
 RUN echo "source /usr/share/bash-completion/completions/git" >> /home/$USERNAME/.bashrc && \
     echo 'eval "$(gh completion -s bash)"' >> /home/$USERNAME/.bashrc && \
     echo "source /opt/ros/jazzy/setup.bash" >> /home/$USERNAME/.bashrc
