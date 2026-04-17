@@ -14,13 +14,20 @@ system:
     workspaces: []
 
 platform:
-  controller: ps4
+  controller: xbox
   attachments:
     - name: top_plate
       type: a300.top_plate
       model: default
       parent: default_mount
       enabled: true
+  extras:
+    ros_parameters:
+      teleop_twist_joy_node:
+        enable_button: 0
+        enable_turbo_button: 5
+      joy_node:
+        dev: /dev/input/js0
 
 sensors:
   lidar3d:

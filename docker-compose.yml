@@ -15,9 +15,14 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
       - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-42}
+      - USER_UID=${USER_UID:-1000}
     volumes:
       - .:/home/ros2-dev/husky_industrial_stack:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /dev/dri:/dev/dri:ro
+    group_add:
+      - input
+    devices:
+      - /dev/input:/dev/input
     stdin_open: true
     tty: true
